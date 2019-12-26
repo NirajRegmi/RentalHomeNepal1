@@ -8,51 +8,71 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'home',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import( '../home/home.module' ).then( m => m.homePageModule )
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'bookmark',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import( '../bookmark/bookmark.module' ).then( m => m.bookmarkPageModule )
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'message',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import( '../message/message.module' ).then( m => m.messagePageModule )
+          }
+        ]
+      },
+      {
+        path: 'addrent',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import( '../addrent/addrent.module' ).then( m => m.AddrentPageModule )
+          }
+        ]
+      },
+      {
+        path: 'you',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import( '../you/you.module' ).then( m => m.YouPageModule )
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/home',
     pathMatch: 'full'
   }
 ];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
+@NgModule( {
+  imports: [RouterModule.forChild( routes )],
   exports: [RouterModule]
-})
-export class TabsPageRoutingModule {}
+} )
+export class TabsPageRoutingModule { }
